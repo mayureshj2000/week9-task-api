@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+flask_migrate
+flask_jwt_extended
+flask_limiter
+marshmallow
+marshmallow-sqlalchemy
+python-dotenv
