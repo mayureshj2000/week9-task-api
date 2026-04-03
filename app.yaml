@@ -4,8 +4,15 @@ command:
   - --bind
   - 0.0.0.0:$PORT
   - --workers
-  - "2"
+  - "1"
   - --threads
-  - "4"
+  - "2"
   - --timeout
   - "120"
+  - --log-level
+  - debug
+  - --capture-output
+  - --error-logfile
+  - "-"
+  - --access-logfile
+  - "-"
