@@ -6,3 +6,4 @@ flask_limiter
 marshmallow
 marshmallow-sqlalchemy
 python-dotenv
+gunicorn
