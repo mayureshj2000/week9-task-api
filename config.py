@@ -16,8 +16,8 @@ class Config:
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(minutes=30)
     JWT_REFRESH_TOKEN_EXPIRES = timedelta(days=7)
 
-    JWT_TOKEN_LOCATION = ["headers"]   # ✅ ADD THIS
-    JWT_HEADER_NAME = "Authorization" # ✅ ADD THIS
-    JWT_HEADER_TYPE = "Bearer"        # ✅ ADD THIS
+    JWT_TOKEN_LOCATION = ["headers"]
+    JWT_HEADER_NAME = "Authorization"
+    JWT_HEADER_TYPE = "Bearer"
 
     RATELIMIT_DEFAULT = "100 per hour"
