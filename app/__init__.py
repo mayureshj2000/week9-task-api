@@ -10,7 +10,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
-    limiter.init_app(app)
+    # limiter.init_app(app)
 
     from app.auth import bp as auth_bp
     from app.tasks import bp as tasks_bp
