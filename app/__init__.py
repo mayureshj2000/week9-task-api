@@ -17,7 +17,10 @@ def create_app(config_class=Config):
     from app import models
 
     with app.app_context():
+        from app.models import User
+        print("Creating DB tables...")
         db.create_all()
+        print("DB tables created")
   
     from app.auth import bp as auth_bp
     from app.tasks import bp as tasks_bp
