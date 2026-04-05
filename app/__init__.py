@@ -39,6 +39,14 @@ def create_app(config_class=Config):
     def ratelimit_handler(error):
         return error_response("Too many requests", 429)
 
+    @app.errorhandler(Exception)
+    def handle_exception(e):
+        import traceback
+        return {
+            "status": "error",
+            "message": str(e),
+            "trace": traceback.format_exc()
+        }, 500
     return app
 
 # No code outside the function, so SyntaxError should be resolved.
