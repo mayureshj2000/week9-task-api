@@ -13,8 +13,6 @@ def create_app(config_class=Config):
     migrate.init_app(app, db)
     jwt.init_app(app)
     # limiter.init_app(app)
-    from app import models
-
     # with app.app_context():
     #     from app.models import User
     #     print("Creating DB tables...")
