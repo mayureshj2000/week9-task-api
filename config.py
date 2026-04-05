@@ -8,7 +8,7 @@ DEBUG = True
 class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY", "default")
 
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join("/tmp", "app.db")
+    SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/app.db"
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 

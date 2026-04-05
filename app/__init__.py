@@ -1,5 +1,4 @@
-# The code is already inside a function, so the error likely comes from indentation or misplaced code outside the function.
-# Ensure all code is inside the create_app function and there is no stray 'return' outside any function.
+
 
 from flask import Flask, jsonify
 from config import Config
@@ -51,5 +50,3 @@ def create_app(config_class=Config):
             "trace": traceback.format_exc()
         }, 500
     return app
-
-# No code outside the function, so SyntaxError should be resolved.
