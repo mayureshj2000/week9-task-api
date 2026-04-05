@@ -1,5 +1,16 @@
 import logging
 logging.basicConfig(level=logging.DEBUG)
+from app import create_app
+from app.extensions import db
+
+app = create_app()
+
+with app.app_context():
+    try:
+        db.create_all()
+        print("✅ DB Created")
+    except Exception as e:
+        print("❌ DB Error:", e)
 
 print("🚀 Starting app...")
 
