@@ -4,13 +4,15 @@ logging.basicConfig(level=logging.DEBUG)
 print("STEP 1: Starting script")
 
 try:
-    print("STEP 2: Importing app")
     from app import create_app
+    from app.extensions import db
 
-    print("STEP 3: Creating app")
     app = create_app()
+    print("✅ App created")
 
-    print("STEP 4: App created")
+    with app.app_context():
+        db.create_all()
+        print("✅ DB Created")
 
 except Exception as e:
     import traceback
@@ -21,4 +23,6 @@ except Exception as e:
 print("STEP 5: Starting server")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+    import os
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)

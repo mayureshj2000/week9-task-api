@@ -12,12 +12,9 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
-    # limiter.init_app(app)
-    # with app.app_context():
-    #     from app.models import User
-    #     print("Creating DB tables...")
-    #     db.create_all()
-    #     print("DB tables created")
+    
+    with app.app_context():
+        db.create_all()
   
     from app.auth import bp as auth_bp
     from app.tasks import bp as tasks_bp

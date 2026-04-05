@@ -11,7 +11,7 @@ from app.models import User
 from app.utils.responses import success_response, error_response
 from sqlalchemy import inspect
 
-@bp.post("/register", methods=["POST"])
+@bp.route("/register", methods=["POST"])
 def register():
     inspector = inspect(db.engine)
     if "user" not in inspector.get_table_names():
@@ -51,7 +51,7 @@ def register():
         201,
     )
 
-@bp.post("/login")
+@bp.route("/login", methods=["POST"])
 def login():
     data = request.get_json() or {}
     email = data.get("email")
@@ -75,7 +75,7 @@ def login():
         }
     )
 
-@bp.post("/refresh")
+@bp.route("/refresh", methods=["POST"])
 @jwt_required(refresh=True)
 def refresh_token():
     user_id = get_jwt_identity()
