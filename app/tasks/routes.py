@@ -6,6 +6,8 @@ from app.models import Task
 from app.utils.validators import validate_task_data
 from app.utils.responses import success_response, error_response
 
+print("HEADERS:", dict(request.headers))
+
 def serialize_task(task: Task):
     return {
         "id": task.id,
