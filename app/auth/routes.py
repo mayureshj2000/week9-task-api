@@ -9,9 +9,14 @@ from app.auth import bp
 from app.extensions import db
 from app.models import User
 from app.utils.responses import success_response, error_response
+from sqlalchemy import inspect
 
-@bp.post("/register")
+@bp.post("/register", methods=["POST"])
 def register():
+    inspector = inspect(db.engine)
+    if "user" not in inspector.get_table_names():
+        db.create_all()
+
     data = request.get_json() or {}
     username = data.get("username")
     email = data.get("email")
