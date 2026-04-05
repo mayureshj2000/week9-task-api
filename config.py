@@ -2,6 +2,7 @@ import os
 from datetime import timedelta
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+DEBUG = True
 
 class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY", "default")
