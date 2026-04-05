@@ -1,3 +1,5 @@
 command:
   - python
   - run.py
+
+access: public
